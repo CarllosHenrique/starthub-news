@@ -1,0 +1,39 @@
+<article class="mb-4">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <h1 style="word-wrap: break-word;"><%= @new.title %></h1><!-- Title -->
+                <p class="description" style="word-wrap: break-word;"><%= @new.description %></p><!-- Description -->
+
+                <h2 class="section-heading" style="word-wrap: break-word;"><%= @new.sectionHeading %></h2> <!-- sectionHeading -->
+                <blockquote class="blockquote" style="word-wrap: break-word;"><%= @new.blockquote %></blockquote> <!-- blockquote -->
+                
+                <% if @new.image.attached? %>
+                    <%= image_tag @new.image, :class => "img-fluid" %>
+                <% else %>
+                   <p><i class="fas fa-heart-broken"></i> O criador dessa noticía não adicionou uma imagem <i class="fas fa-heart-broken"></i></p>
+                <% end %>
+
+                <% if @new.archive.attached? %>
+                     <p><em>"O criador dessa noticía disponibilizou um arquivo para download, você pode recebelo clicando <%= link_to "aqui", @new.archive %>"</em></p>
+                <% else %>
+                    <p><i class="fas fa-heart-broken"></i> O criador dessa noticía não disponibilizou um arquivo para download <i class="fas fa-heart-broken"></i></p>
+                <% end %>
+
+                <% if current_user.news.include? @new %>
+                    <div class="options-buttons" style="float: right;">
+                        <%= button_to "Editar", edit_news_path(@new.id), class:"btn btn-primary", method: :get%>
+                        <%= button_to "Deletar", @new, class:"btn btn-danger", method: :delete, data: {confirm: "Tem certeza que deseja excluir essa noticía?"}%>
+                    </div>
+                <% end %>
+                <p>
+                    Noticía text por
+                    <%= link_to @new.user.name, "/profile/#{@new.user.nickname}" %>
+                    &middot; Fonte
+                    <%= link_to @new.font, @new.fontLink %> <!-- Font  -->
+                </p>
+            </div>
+        </div>
+    </div>
+</article>
+

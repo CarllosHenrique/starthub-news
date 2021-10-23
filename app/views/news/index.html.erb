@@ -1,0 +1,25 @@
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+            <h1 style="font-size: 74px;">Todas as noticías</h1>
+            <%= link_to new_news_path  , class: "btn btn-primary" do %>
+                Nova noticía <i class="fas fa-newspaper"></i>
+            <% end %>
+            <% @news.each do |n| %>
+                <div class="post-preview">
+                    <%= link_to n do %>
+                        <h2 class="post-title" style="word-wrap: break-word;"><%= n.title %></h2>
+                        <h3 class="post-subtitle" style="word-wrap: break-word;"><%= truncate(n.description, :length => 90) %></h3>
+                    <% end %>
+                    <p class="post-meta">
+                        Postado há <%= time_ago_in_words n.created_at %> atrás
+                        por <%= link_to n.user.name , "/profile/#{n.user.nickname}" %> em <%= n.created_at.strftime("%Y") %>
+                    </p>
+                </div>
+                <hr class="my-4" />
+            <% end %>
+        </div>
+    </div>
+</div>
+<br>
+        

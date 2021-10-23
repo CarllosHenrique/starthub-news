@@ -1,0 +1,24 @@
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+            <h1 style="font-size: 74px;">Noticías</h1>
+           <% @news.each do |n| %>
+                <div class="post-preview">
+                    <%= link_to n do %>
+                        <h2 class="post-title" style="word-wrap: break-word;"><%= n.title %></h2>
+                        <h3 class="post-subtitle" style="word-wrap: break-word;"><%= truncate(n.description, :length => 90) %></h3>
+                    <% end %>
+                    <p class="post-meta">
+                        Postado há <%= time_ago_in_words n.created_at %> atrás
+                        por <%= link_to n.user.name , "/profile/#{n.user.nickname}" %> em <%= n.created_at.strftime("%Y") %>
+                    </p>
+                </div>
+                <hr class="my-4" />
+            <% end %>
+            <% if @news.count >= 3 %>
+                <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="<%= news_index_path %>">Todas noticías →</a></div>
+            <% end %>
+        </div>
+    </div>
+</div>
+        

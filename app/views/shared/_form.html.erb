@@ -1,0 +1,73 @@
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+          <% @new.errors.full_messages.each do |msg| %>
+              <div class="alert alert-danger" role="alert">
+                  <%= msg %>
+              </div>
+          <% end %>
+            <%= form_with model: @new do |form| %>
+              <div class="form-floating">
+                  <%= form.text_field :title, class: "form-control" %>
+                  <%= form.label :title do %>
+                    <i class="fas fa-search"></i> Titulo da sua noticía
+                  <% end %>
+              </div>
+              <div class="form-floating">
+                  <%= form.text_area :description, class: "form-control", style: "height: 150px;" %>
+                  <%= form.label :title do %>
+                    <i class="fas fa-search"></i> Descrição
+                  <% end %>
+              </div>
+              <div class="form-floating">
+                  <%= form.text_field :sectionHeading, class: "form-control" %>
+                  <%= form.label :sectionHeading do %>
+                    <i class="fas fa-search"></i> Título da seção
+                  <% end %>
+              </div>
+              <div class="form-floating">
+                  <%= form.text_area :blockquote, class: "form-control", style: "height: 120px;"%>
+                  <%= form.label :blockquote do %>
+                    <i class="fas fa-search"></i> Bloco de seção
+                  <% end %>
+              </div>
+              <div class="font" style="display: flex">
+                <div class="form-floating">
+                    <%= form.file_field :image, class: "form-control" %>
+                    <%= form.label :image do %>
+                      <i class="fas fa-search"></i> Imagem
+                    <% end %>
+                </div>
+                <div class="form-floating">
+                    <%= form.file_field :archive, class: "form-control" %>
+                    <%= form.label :archive do %>
+                      <i class="fas fa-search"></i> Arquivo para download
+                    <% end %>
+                </div>
+              </div>
+              <div class="font" style="display: flex">
+                <div class="form-floating">
+                    <%= form.text_field :font, class: "form-control" %>
+                    <%= form.label :font do %>
+                      <i class="fas fa-search"></i> Fonte
+                    <% end %>
+                </div>
+                <div class="form-floating">
+                    <%= form.text_field :fontLink, class: "form-control" %>
+                    <%= form.label :fontLink do %>
+                      <i class="fas fa-search"></i> Link da fonte
+                    <% end %>
+                </div>
+              </div>
+              <br>
+              <div>
+	              <%= form.submit class: "btn btn-primary"%>
+	            <% end %>
+	            <%= link_to "Voltar", root_path, class: "btn btn-danger"%>
+            </div>
+            <br>
+            <br>
+        </div>
+    </div>
+</div>
+        

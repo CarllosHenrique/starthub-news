@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Starthub</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <%= render "home_shareds/stylesheets" %>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  
+  <body class="container">
+    <%= render "home_shareds/navbar" %>
+    <br><br><br>
+    <%= render "home_shareds/alert_notice" %>
+    <%= yield %>
+  </body>
+  <footer class="border-top">
+    <%= render "home_shareds/footer" %>
+  </footer>
+</html>
