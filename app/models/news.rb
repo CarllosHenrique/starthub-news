@@ -10,7 +10,6 @@ class News < ApplicationRecord
   validates :font, presence: true, length: { minimum: 2, maximum: 20 }
   validates :fontLink, presence: true, length: { minimum: 10 }
 
-
   extend FriendlyId
   friendly_id :title, use: :slugged
 end

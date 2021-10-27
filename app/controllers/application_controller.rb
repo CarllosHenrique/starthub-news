@@ -5,9 +5,10 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    sign_up_attributes = [:name, :nickname, :email, :avatar]
-    edit_attributes = [sign_up_attributes, :bio, :facebook, :instagram, :twitter]
+    sign_up_attributes = %i[name nickname email avatar]
+    edit_attributes = %i[bio facebook instagram twitter]
+    edit_options = [sign_up_attributes, edit_attributes]
     devise_parameter_sanitizer.permit(:sign_up, keys: sign_up_attributes)
-    devise_parameter_sanitizer.permit(:account_update, keys: edit_attributes)
+    devise_parameter_sanitizer.permit(:account_update, keys: edit_options)
   end
 end

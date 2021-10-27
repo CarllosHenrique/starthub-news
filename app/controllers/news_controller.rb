@@ -34,13 +34,12 @@ class NewsController < ApplicationController
 
   private
 
-    def set_news_with_user
-      @new = current_user.news.friendly.find(params[:id])
-    end
+  def set_news_with_user
+    @new = current_user.news.friendly.find(params[:id])
+  end
 
-
-    def news_params
-      params.require(:news).permit(:title, :description, :sectionHeading,
-        :blockquote, :imgFluid, :font, :fontLink, :image, :archive)
-    end
+  def news_params
+    params.require(:news).permit(:title, :description, :sectionHeading,
+                :blockquote, :imgFluid, :font, :fontLink, :image, :archive)
+  end
 end

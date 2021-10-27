@@ -10,9 +10,7 @@ class HomeController < ApplicationController
     @news_belong_to_user = News.all.limit(4)
   end
 
-def users
-  @users = User.all
-end
-
-
+  def users
+    @users = User.all
+  end
 end
