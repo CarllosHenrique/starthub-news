@@ -1,13 +1,19 @@
 Rails.application.routes.draw do
-  Rails.application.routes.draw do
-    devise_for :users, controllers: {
-      sessions: 'users/sessions'
-    }
-  end
+
+  devise_for :users, controllers: {
+    sessions: 'users/sessions'
+  }
+
   root to: 'home#index'
+
   get 'users', to: 'home#users'
   get 'search', to: 'news#search'
-  get 'profile/:nickname', to: 'home#profile'
   resources :news
+
+  get "/profile/:nickname", to: "profile#index"
+
+  get "/profile/:nickname/edit", to: "profile#edit"
+  patch "/profile/:nickname/edit", to: "profile#update" 
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -2,21 +2,24 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="profile-img">
-                            <% if @profile.avatar.attached? %>
-                                <%= image_tag @profile.avatar, width: "350px" , height: "350px" %>
+                            <% if @user.avatar.attached? %>
+                                <%= image_tag @user.avatar, width: "350px" , height: "350px" %>
+                                <%= link_to "Mudar avatar", "/profile/#{@user.nickname}/edit" , class: "btn btn-primary" %>
+                            <% else %>
+                                <%= link_to "Adicionar uma foto", "/profile/#{@user.nickname}/edit" , class: "btn btn-primary" %>
                             <% end %>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="profile-head">
                                     <h5>
-                                        <%= @profile.name %>
+                                        <%= @user.name %>
                                     </h5>
                                     <h6>
-                                        <%= @profile.nickname %>
+                                        <%= @user.nickname %>
                                     </h6>
                                     <h6>
-                                        <%= @profile.email %>
+                                        <%= @user.email %>
                                     </h6>
                                     
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -26,7 +29,7 @@
                             </ul>
                         </div>
                     </div>
-                    <% if current_user.nickname.include? @profile.nickname %>
+                    <% if current_user.nickname.include? @user.nickname %>
                         <div class="col-md-2">
                             <br>
                             <%= link_to "Editar perfil",edit_user_registration_path, class: "btn btn-primary" %>
@@ -38,20 +41,20 @@
                     <div class="col-md-4">
                         <div class="profile-work">
                             <p>Sociais</p>
-                                <a href="<%= @profile.facebook %>"><i class="fab fa-facebook-f"></i></a>
-                                <a href="<%= @profile.instagram %>"><i class="fab fa-instagram"></i></a>
-                             <a href="<%= @profile.twitter %>"><i class="fab fa-twitter"></i></a>
+                                <a href="<%= @user.facebook %>"><i class="fab fa-facebook-f"></i></a>
+                                <a href="<%= @user.instagram %>"><i class="fab fa-instagram"></i></a>
+                             <a href="<%= @user.twitter %>"><i class="fab fa-twitter"></i></a>
                         </div>
                     </div>
                     <div class="col-md-8">
                         <div class="tab-content profile-tab" id="myTabContent">
                             <div class="row">
-                                <%= @profile.bio %>
+                                <%= @user.bio %>
                             </div>
                             <div class="row">
                                 <hr>
                                 <% @news_belong_to_user.each do |user_news| %>
-                                <% if user_news.user.nickname.include? @profile.nickname %>
+                                <% if user_news.user.nickname.include? @user.nickname %>
                                     <div class="post-preview">
                                         <%= link_to user_news do %>
                                             <h2 class="post-title" style="word-wrap: break-word;"><%= user_news.title %></h2>
