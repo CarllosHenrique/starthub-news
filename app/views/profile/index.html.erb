@@ -4,9 +4,13 @@
                         <div class="profile-img">
                             <% if @user.avatar.attached? %>
                                 <%= image_tag @user.avatar, width: "350px" , height: "350px" %>
-                                <%= link_to "Mudar avatar", "/profile/#{@user.nickname}/edit" , class: "btn btn-primary" %>
+
+                                <% if current_user.nickname.include? @user.nickname %>    
+                                    <%= link_to "Mudar informaçoẽs", profile_edit_path(@user.nickname) , class: "btn btn-primary" %>
+                                <% end %>
+                                
                             <% else %>
-                                <%= link_to "Adicionar uma foto", "/profile/#{@user.nickname}/edit" , class: "btn btn-primary" %>
+                                    <%= link_to "Adicionar informaçoẽs", profile_edit_path(@user.nickname) , class: "btn btn-primary" %>
                             <% end %>
                         </div>
                     </div>
@@ -41,9 +45,9 @@
                     <div class="col-md-4">
                         <div class="profile-work">
                             <p>Sociais</p>
-                                <a href="<%= @user.facebook %>"><i class="fab fa-facebook-f"></i></a>
-                                <a href="<%= @user.instagram %>"><i class="fab fa-instagram"></i></a>
-                             <a href="<%= @user.twitter %>"><i class="fab fa-twitter"></i></a>
+                                <a href="https://facebook.com/<%= @user.facebook %>"><i class="fab fa-facebook-f"></i></a>
+                                <a href="https://instagram.com/<%= @user.instagram %>"><i class="fab fa-instagram"></i></a>
+                             <a href="https://twitter.com/<%= @user.twitter %>"><i class="fab fa-twitter"></i></a>
                         </div>
                     </div>
                     <div class="col-md-8">

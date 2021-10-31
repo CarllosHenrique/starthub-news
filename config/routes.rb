@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   devise_for :users, controllers: {
     sessions: 'users/sessions'
   }
@@ -10,10 +9,10 @@ Rails.application.routes.draw do
   get 'search', to: 'news#search'
   resources :news
 
-  get "/profile/:nickname", to: "profile#index"
+  get '/profile/:nickname', to: 'profile#index', as: 'profile_index'
 
-  get "/profile/:nickname/edit", to: "profile#edit"
-  patch "/profile/:nickname/edit", to: "profile#update" 
+  get '/profile/:nickname/edit', to: 'profile#edit', as: 'profile_edit'
+  patch '/profile/:nickname/edit', to: 'profile#update'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

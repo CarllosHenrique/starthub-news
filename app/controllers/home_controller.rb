@@ -6,5 +6,4 @@ class HomeController < ApplicationController
   def users
     @users = User.all
   end
-
 end

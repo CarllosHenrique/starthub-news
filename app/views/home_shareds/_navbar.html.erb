@@ -10,7 +10,7 @@
             <ul class="navbar-nav ms-auto py-4 py-lg-0">
                 <% if user_signed_in? %>
                     <li class="nav-item">
-                        <%= link_to "/profile/#{current_user.nickname}", class:"nav-link px-lg-3 py-3 py-lg-4" do %>
+                        <%= link_to profile_index_path(current_user.nickname), class:"nav-link px-lg-3 py-3 py-lg-4" do %>
                             <i class="fas fa-user-astronaut"></i> <%= current_user.name %>
                         <% end %>
                     </li>
