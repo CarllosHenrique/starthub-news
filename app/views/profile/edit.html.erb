@@ -9,7 +9,9 @@
                     <li class="nav-item" style="text-align: center;">
                         <%= form_with model: @user, url: "/profile/#{@user.nickname}/edit" , method: :patch do |form| %>
                         <div class="form-floating">
-                          <img id="output" width="250" height="250" />
+                            <% if current_user.avatar.attached? %>
+                          <%= image_tag current_user.avatar, id: "output", width:"250", height:"250"%>
+                          <% end %>
                           <br>
                           <%= form.file_field :avatar, class: "form-control", onchange:"loadFile(event)"%>
                         </div>
@@ -31,6 +33,11 @@
                           <div class="form-floating">
                             <%= form.text_field :twitter, autofocus: true, class: "form-control"%>
                             <%= form.label :twitter %><br />
+                          </div>
+
+                          <div class="form-floating">
+                            <%= form.color_field :theme, class: "form-control"%>
+                            <%= form.label :Tema_colorido %><br />
                           </div>
                         <br>
                             <%= form.submit "Atualizar", class: "btn btn-primary", style: "margin-bottom: 26px;"%>

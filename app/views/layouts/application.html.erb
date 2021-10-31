@@ -11,7 +11,7 @@
   </head>
 
   
-  <body class="container">
+  <body class="container" style="background-color: <%=  if user_signed_in? then current_user.theme end %>">
     <%= render "home_shareds/navbar" %>
     <br><br><br>
     <%= render "home_shareds/alert_notice" %>

@@ -21,7 +21,7 @@ class ProfileController < ApplicationController
   private
 
   def avatar_params
-    params.require(:user).permit(:avatar, :bio, :facebook, :twitter, :instagram)
+    params.require(:user).permit(:avatar, :bio, :facebook, :twitter, :instagram, :theme)
   end
 
   def set_avatar
