@@ -97,7 +97,7 @@ ul.twPc-Arrange {
         <% @users.each do |u| %>
         <div class="twPc-div" style="margin: 0px 11px;">
             <a class="twPc-bg twPc-block"></a>
-                <a title="<%= u.name %>" href="/profile/<%= u.nickname %>" class="twPc-avatarLink">
+                <a title="<%= u.name %>" href="<%= profile_index_path(u.nickname) %>" class="twPc-avatarLink">
                     <% if u.avatar.attached? %> 
                         <%= image_tag u.avatar, class: "twPc-avatarImg" %>
                     <% end %>
@@ -105,7 +105,7 @@ ul.twPc-Arrange {
 
                 <div class="twPc-divUser">
                     <div class="twPc-divName">
-                        <a href="/profile/<%= u.nickname %>"><%= u.name %></a>
+                        <a href="<%= profile_index_path(u.nickname) %>"><%= u.name %></a>
                     </div>
                 </div>
         </div>

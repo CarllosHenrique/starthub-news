@@ -1,0 +1,16 @@
+<hr>
+<br>
+<br>
+<br>
+<% @comments.each do |comments| %>
+	<div class="card">
+	  <div class="card-body">
+	    <h5 class="card-title"><%= link_to comments.user.name, profile_index_path(comments.user.nickname) %></h5>
+	    <h6 class="card-subtitle mb-2 text-muted">Administrador</h6>
+	    <p class="card-text"><%= comments.content %></p>
+	    <a href="#" class="card-link" style="float: right;"><i class="fas fa-trash"></i></a>
+	    <a href="#" class="card-link" style="float: right;">1<i class="fas fa-comments"></i></a>
+	  </div>
+	</div>
+	<br>
+<% end %>

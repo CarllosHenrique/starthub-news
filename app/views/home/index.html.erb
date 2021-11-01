@@ -10,7 +10,7 @@
                     <% end %>
                     <p class="post-meta">
                         Postado há <%= time_ago_in_words n.created_at %> atrás
-                        por <%= link_to n.user.name , "/profile/#{n.user.nickname}" %> em <%= n.created_at.strftime("%Y") %>
+                        por <%= link_to n.user.name , profile_index_path(n.user.nickname) %> em <%= n.created_at.strftime("%Y") %>
                     </p>
                 </div>
                 <hr class="my-4" />

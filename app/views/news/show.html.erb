@@ -28,10 +28,11 @@
                 <% end %>
                 <p>
                     Noticía text por
-                    <%= link_to @new.user.name, "/profile/#{@new.user.nickname}" %>
+                    <%= link_to @new.user.name, profile_index_path(@new.user.nickname) %>
                     &middot; Fonte
                     <%= link_to @new.font, @new.fontLink %> <!-- Font  -->
                 </p>
+                <%= link_to "Comentarios", comments_index_path(@new.title.downcase), class:"btn btn-primary" %>
             </div>
         </div>
     </div>

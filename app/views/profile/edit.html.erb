@@ -7,7 +7,7 @@
             <div class="profile-head"> 
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item" style="text-align: center;">
-                        <%= form_with model: @user, url: "/profile/#{@user.nickname}/edit" , method: :patch do |form| %>
+                        <%= form_with model: @user, url: profile_edit_path(@user.nickname) , method: :patch do |form| %>
                         <div class="form-floating">
                             <% if current_user.avatar.attached? %>
                           <%= image_tag current_user.avatar, id: "output", width:"250", height:"250"%>
@@ -42,6 +42,7 @@
                         <br>
                             <%= form.submit "Atualizar", class: "btn btn-primary", style: "margin-bottom: 26px;"%>
                     <% end %>
+                        <%= link_to "Voltar", profile_index_path(@user.nickname), class: "btn btn-danger"%>
                     </li>
                 </ul>
             </div>
