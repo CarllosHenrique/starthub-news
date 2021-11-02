@@ -1,0 +1,8 @@
+<div class="comment_form">
+	<%= form_with model: @current_user_comment, url: comments_new_path(@single_news.slug), method: :post do |form| %>
+		<%= form.text_area :content, class: "form-control", style: "height: 100px;" , placeholder: "Digite seu comentario "%>
+		<br>
+		<%= form.submit class: "btn btn-primary" , style: "float: right;"%>
+	<% end %>
+	<%= link_to "Voltar",  news_index_path, class: "btn btn-danger"%>
+</div>

@@ -1,7 +1,9 @@
 <hr>
 <br>
+  <%= render 'new_form' %>
 <br>
 <br>
+
 <% @comments.each do |comments| %>
 	<div class="card">
 	  <div class="card-body">
@@ -14,3 +16,7 @@
 	</div>
 	<br>
 <% end %>
+
+<p>
+  <%= link_to 'Novo Comentario', comments_new_path(@single_news.slug), method: :get %>
+</p>
