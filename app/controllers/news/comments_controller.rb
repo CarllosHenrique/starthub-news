@@ -1,5 +1,4 @@
 class News::CommentsController < ApplicationController
-  # before_action :find_comment, only: %i[index new]
   before_action :find_single_News, only: %i[index create]
 
   def index
@@ -18,10 +17,6 @@ class News::CommentsController < ApplicationController
       redirect_to comments_index_path({id: @single_news.slug}), notice: msg
     end 
   end
-
-  # def new
-  #   @current_user_comment = Comment.new
-  # end
 
   private
 
