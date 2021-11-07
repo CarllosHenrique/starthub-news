@@ -17,5 +17,6 @@ Rails.application.routes.draw do
   get '/news/:id/comments', to: 'news/comments#index', as: 'comments_index'
   get '/news/:id/comments/new', to: 'news/comments#new', as: 'comments_new'
   post '/news/:id/comments/new', to: 'news/comments#create'
+  delete '/news/:id/comments', to: 'news/comments#destroy'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -1,5 +1,4 @@
-<hr>
-<br>
+
   <%= render 'new_form' %>
 <br>
 <br>
@@ -10,13 +9,10 @@
 	    <h5 class="card-title"><%= link_to comments.user.name, profile_index_path(comments.user.nickname) %></h5>
 	    <h6 class="card-subtitle mb-2 text-muted">Administrador</h6>
 	    <p class="card-text"><%= comments.content %></p>
-	    <a href="#" class="card-link" style="float: right;"><i class="fas fa-trash"></i></a>
-	    <a href="#" class="card-link" style="float: right;">1<i class="fas fa-comments"></i></a>
+	    <%= link_to comments_index_path(comments), class: "card-link", method: :delete do %>
+	    	<i class="fas fa-trash"></i>
+	    <% end %>
 	  </div>
 	</div>
 	<br>
 <% end %>
-
-<p>
-  <%= link_to 'Novo Comentario', comments_new_path(@single_news.slug), method: :get %>
-</p>
