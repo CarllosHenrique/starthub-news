@@ -3,7 +3,7 @@ class News::CommentsController < ApplicationController
   before_action :find_comment, only: %i[destroy]
 
   def index
-    @comments = Comment.all.order(updated_at: :desc)
+    @comments = @single_news.comments.order(updated_at: :desc)
     @user_comment = Comment.new
   end
 
@@ -21,8 +21,10 @@ class News::CommentsController < ApplicationController
   end
 
   def destroy
+    news = @single_comment.news
     if @single_comment.destroy
-      redirect_to root_path, notice: 'Comentario excluido'
+      redirect_to comments_index_path(news.slug), notice: 'Comentario excluido'
+      # redirect_to comments_index_path(@single_news.slug), notice: 'Comentario excluido'
     else
       redirect_to root_path, alert: 'Você nao pode fazer isso'
     end
