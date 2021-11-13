@@ -11,8 +11,9 @@
   </head>
 
   
-  <body class="container" style="background-color: <%= if user_signed_in? then current_user.theme end %>">
+  <body class="container" style="background-image: url(<%= if user_signed_in? then current_user.theme end %>);background-position: center;background-size: 100%;">
     <%= render "home_shareds/navbar" %>
+
     <br><br><br>
     <%= render "home_shareds/alert_notice" %>
     <%= yield %>
