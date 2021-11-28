@@ -23,8 +23,8 @@ class News::CommentsController < ApplicationController
   def destroy
     news = @single_comment.news
     if @single_comment.destroy
-      redirect_to comments_index_path(news.slug), notice: 'Comentario excluido'
-      # redirect_to comments_index_path(@single_news.slug), notice: 'Comentario excluido'
+      msg = 'Comentario excluido'
+      redirect_to comments_index_path(news.slug), notice: msg
     else
       redirect_to root_path, alert: 'Você nao pode fazer isso'
     end
