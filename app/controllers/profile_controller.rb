@@ -2,7 +2,7 @@ class ProfileController < ApplicationController
   before_action :set_avatar, only: %i[edit update index]
 
   def index
-    @news_belong_to_user = News.all.limit(4)
+    @news_belong_to_user = News.all
   end
 
   def edit; end

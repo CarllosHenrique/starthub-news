@@ -1,4 +1,4 @@
-<div class="container emp-profile">
+<div class="container emp-profile" style="background-image: url(<%= if user_signed_in? then @user.theme end %>);background-position: center;background-size: 100%;">
                 <div class="row">
                     <div class="col-md-4">
                         <div class="profile-img">
@@ -57,12 +57,26 @@
                             </div>
                             <div class="row">
                                 <hr>
+                                <% if current_user.nickname.include? @user.nickname %>
+                                    <%= link_to "Criar uma nova noticía", new_news_path, class: "btn btn-primary" %>
+                                <% end %>
                                 <% @news_belong_to_user.each do |user_news| %>
-                                <% if user_news.user.nickname.include? @user.nickname %>
-                                    <div class="post-preview">
-                                        <%= link_to user_news do %>
-                                            <h2 class="post-title" style="word-wrap: break-word;"><%= user_news.title %></h2>
-                                        <% end %>
+                                    <% if user_news.user.nickname.include? @user.nickname %>
+                                        <div class="post-preview">
+                                            <br>
+                                            <h2 class="post-title" style="word-wrap: break-word;"><%= user_news.title %>
+                                                <%= link_to user_news do %>
+                                                    <i class="fas fa-eye"></i>
+                                                <% end %>
+                                                <% if user_news.user == current_user %>
+                                                <%= link_to user_news, method: :delete, data: {confirm: "Tem certeza que deseja excluir essa noticía?"} do %>
+                                                    <i class="fas fa-trash"></i>
+                                                <% end %>
+                                                <%= link_to edit_news_path user_news.id do %>
+                                                    <i class="fas fa-pencil-alt"></i>
+                                                <% end %>
+                                                </h2>
+                                            <% end %>
                                     <% end %>
                                 <% end %>
                             </div>

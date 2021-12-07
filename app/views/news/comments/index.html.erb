@@ -7,10 +7,12 @@
 	<div class="card">
 	  <div class="card-body">
 	    <h5 class="card-title"><%= link_to comments.user.name, profile_index_path(comments.user.nickname) %></h5>
-	    <h6 class="card-subtitle mb-2 text-muted">Administrador</h6>
+	    <h6 class="card-title"><%= time_ago_in_words comments.created_at %> atrás</h6>
 	    <p class="card-text"><%= comments.content %></p>
-	    <%= link_to comments_index_path(comments), class: "card-link", method: :delete do %>
+	    <% if comments.user == current_user %>
+	    <%= link_to comments_index_path(comments), class: "card-link", method: :delete,  data: {confirm: "Excluir este comentario?"} do %>
 	    	<i class="fas fa-trash"></i>
+	    <% end %>
 	    <% end %>
 	  </div>
 	</div>

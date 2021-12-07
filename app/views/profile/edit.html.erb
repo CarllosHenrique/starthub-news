@@ -17,27 +17,28 @@
                         </div>
                         <br>
                         <div class="form-floating">
-                            <%= form.text_area :bio, class: "form-control", style: "height: 150px" %>
+                            <%= form.text_area :bio, class: "form-control", style: "height: 150px", placeholder: "w" %>
                             <%= form.label :bio %>
                         </div>
                           <div class="form-floating">
-                            <%= form.text_field :facebook, autofocus: true, class: "form-control"%>
+                            <%= form.text_field :facebook, autofocus: true, class: "form-control", placeholder: "w"%>
                             <%= form.label :facebook %><br />
                           </div>
 
                           <div class="form-floating">
-                            <%= form.text_field :instagram, autofocus: true, class: "form-control"%>
+                            <%= form.text_field :instagram, autofocus: true, class: "form-control", placeholder: "w"%>
                             <%= form.label :instagram %><br />
                           </div>
 
                           <div class="form-floating">
-                            <%= form.text_field :twitter, autofocus: true, class: "form-control"%>
+                            <%= form.text_field :twitter, autofocus: true, class: "form-control", placeholder: "w" %>
                             <%= form.label :twitter %><br />
                           </div>
 
                           <div class="form-floating">
-                            <%= form.url_field :theme, class: "form-control"%>
-                            <%= form.label :fundo %><br />
+                            <%= form.url_field :theme, class: "form-control", placeholder: "w" %>
+                            <%= form.label :fundo %>
+                            <em>(Este campo aceita apenas links externos de imagens)</em>
                           </div>
                         <br>
                             <%= form.submit "Atualizar", class: "btn btn-primary", style: "margin-bottom: 26px;"%>
