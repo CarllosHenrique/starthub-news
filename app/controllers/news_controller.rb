@@ -23,6 +23,7 @@ class NewsController < ApplicationController
 
   def show
     @new = News.friendly.find(params[:id])
+    @comments = @new.comments
   end
 
   def edit; end
