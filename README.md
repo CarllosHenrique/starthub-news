@@ -6,9 +6,9 @@ Despite the fact that I enjoy checking the news every morning, I've noticed that
 
 ### built with
 
-* [Ruby 3.1.2](https://www.ruby-lang.org/pt/)
-* [Rails 7.0.3](https://rubyonrails.org/)
-* [Postgresql 12](https://www.postgresql.org/)
+* [Ruby 3.0.0](https://www.ruby-lang.org/pt/)
+* [Rails 6.1.4](https://rubyonrails.org/)
+* [Postgresql](https://www.postgresql.org/)
 
 <!-- GETTING STARTED -->
 ## getting started
